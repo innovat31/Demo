@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form and Table Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        footer {
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Basic Form</h1>
+    <form id="basicForm" onsubmit="return handleSubmit(event)">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <footer>
+        <h2>Forms Filled</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Total Forms Filled</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="formCount">0</td>
+                </tr>
+            </tbody>
+        </table>
+    </footer>
+
+    <script>
+        let formCount = 0;
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            formCount++;
+            document.getElementById('formCount').innerText = formCount;
+            document.getElementById('basicForm').reset();
+        }
+    </script>
+</body>
+</html>
+<-- this is a demo form for streak  -->
